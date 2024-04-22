@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Log IN page</title>
+</head>
+<body>
+<h1>Enter the credentials please!</h1>
+
+<form method="post" th:action="@{/login}">
+    <div th:if="${param.error}" class="error">Wrong credentials</div>
+    <div class="success" th:if="${param.success}">Successfully Registered new user!!</div>
+    <div th:if="${param.logout}" class="logout">Successfully Logout</div>
+    UserName (Email address) : <input type="email" name="username"><br>
+    Password : <input type="password" name="password"><br>
+    <input type="submit" value="LOGIN">
+</form>
+
+<a href="/register" th:href="@{/register}">Click to add new User</a>
+<p><a href="#" th:href="@{/}">Click to main page</a></p>
+</body>
+</html>

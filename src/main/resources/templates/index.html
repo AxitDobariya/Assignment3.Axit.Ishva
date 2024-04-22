@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Main Page</title>
+</head>
+<body>
+<h1>This is Library main page</h1>
+<hr>
+<div th:if="${#lists.isEmpty(bookList)}" th:text="'No Inventory Item'"></div>
+
+<div th:unless="${#lists.isEmpty(bookList)}">
+    <table border = 2>
+
+        <tr>
+            <th>Book Title</th>
+            <th>Book Author</th>
+            <th>Book Reviews</th>
+        </tr>
+        <tr th:each="book : ${bookList}">
+            <td th:text="${book.title}">Book Title</td>
+            <td th:text="${book.author}">Book Author</td>
+            <td><a th:href="@{/ReviewsById/}">Book Reviews</a></td>
+        </tr>
+    </table>
+</div>
+<p th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" >
+    <a href="/addBook" th:href="@{/addBook}">Click to add new Book</a>
+</p>
+<p> <a href="/login" th:href="@{/login}">Click to login</a></p>
+</body>
+</html>

@@ -1,12 +1,8 @@
 package ca.sheridancollege.Assignment3.Axit.Ishva.controllers;
-
-
 import java.util.List;
-
 import ca.sheridancollege.Assignment3.Axit.Ishva.beans.Book;
 import ca.sheridancollege.Assignment3.Axit.Ishva.beans.Review;
 import ca.sheridancollege.Assignment3.Axit.Ishva.database.DatabaseAccess;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 
 @Controller
 public class BookController
@@ -65,7 +60,7 @@ public class BookController
     {
         database.addUser(email, password);
         Long userId=database.findUserAccount(email).getUserid();
-        database.addRole(userId, Long.valueOf(2));
+        database.addRole(userId, 2L);
         return "redirect:/";
     }
 

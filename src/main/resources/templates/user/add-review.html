@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adding the review</title>
+</head>
+<body>
+<h1>Add your preferred review!</h1>
+
+<form method="post" th:action="@{/addReview}" action="#">
+    <input type="hidden" name="bookId" th:value="${bookId}">
+    <textarea name="text" rows="10" required></textarea>
+    <br> <input type="submit" name="addReview" value="Add">
+
+</form>
+<p><a href="#" th:href="@{/}">Click to main page</a></p>
+
+</body>
+</html>
